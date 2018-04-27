@@ -7,7 +7,7 @@ package codigo;
 
 /**
  *
- * @author xp
+ * @author xpfe
  */
 public class Mascotas extends javax.swing.JFrame {
 
