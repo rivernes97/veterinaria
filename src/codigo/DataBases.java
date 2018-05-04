@@ -6,7 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JDialog;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,13 +19,15 @@ public class DataBases {
     private ResultSetMetaData rsm;
     DefaultTableModel dtm;
     
-    private Connection getConexion()throws Exception{
+ public Connection getConexion(){
+     try{
         Class.forName("com.mysql.jdbc.Driver");
         cn=DriverManager.getConnection("jdbc:mysql://127.0.0.1/veterinaria","root","root");
-                
-        return cn;
-    }
-    
+     }    catch(Exception e){
+        
+     }
+     return cn;
+ }
     public void llenarTabla(JTable tabla)throws Exception{
         ps=getConexion().prepareStatement("select nombre,apellido,dni,telefono from cliente");
         rs=ps.executeQuery();
@@ -42,6 +46,19 @@ public class DataBases {
             dtm.addRow(datos.get(i));
         }
     }
-}
+
+  
+                
+
+////////////////////
+        
+        
+   } 
+    
+    
+    
+
+      
+
 
 
