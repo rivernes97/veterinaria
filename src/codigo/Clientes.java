@@ -367,7 +367,7 @@ public class Clientes extends javax.swing.JFrame {
             pps.executeUpdate();
             JOptionPane.showMessageDialog(null,"datos guardados" );
                     }catch(SQLException e){
-             java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, "No se pueden repetir registros");
              
     }//GEN-LAST:event_jButton6MouseClicked
     }
@@ -420,7 +420,7 @@ public class Clientes extends javax.swing.JFrame {
             }
             Jtable.setModel(dtm);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "No se pueden repetir registros");
         }
      
         
@@ -433,23 +433,7 @@ public class Clientes extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
+   
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

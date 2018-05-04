@@ -47,7 +47,25 @@ public class DataBases {
         }
     }
 
-  
+    public void llenarTabla1(JTable tabla)throws Exception{
+        ps=getConexion().prepareStatement("select nombre,sexo,especie,raza,chip,fecha_nacimiento,propietario from mascota");
+        rs=ps.executeQuery();
+        rsm=rs.getMetaData();
+        ArrayList<Object[]> datos=new ArrayList<>();
+        while (rs.next()) {            
+            Object[] filas=new Object[rsm.getColumnCount()];
+            for (int i = 0; i < filas.length; i++) {
+                filas[i]=rs.getObject(i+1);
+                
+            }
+            datos.add(filas);
+        }
+        dtm=(DefaultTableModel)tabla.getModel();
+        for (int i = 0; i <datos.size(); i++) {
+            dtm.addRow(datos.get(i));
+        }
+    }
+
                 
 
 ////////////////////
