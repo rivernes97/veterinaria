@@ -349,6 +349,12 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+       
+      Nombre.setText("");
+      Apellido.setText("");
+      Dni.setText("");
+     Telefono.setText("");
+        
         jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
 

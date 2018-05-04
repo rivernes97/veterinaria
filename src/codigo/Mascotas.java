@@ -23,14 +23,13 @@ public class Mascotas extends javax.swing.JFrame {
     DataBases con = new DataBases();
     Connection cn = con.getConexion();
     DefaultTableModel dtm;
-  
 
     /**
      * Creates new form Mascotas
      */
     public Mascotas() {
         initComponents();
-         jDialog1.setSize(400, 500);
+        jDialog1.setSize(400, 500);
     }
 
     /**
@@ -386,7 +385,15 @@ public class Mascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-           jDialog1.setVisible(true);
+        mNombre.setText("");
+        mSexo.setText("");
+        mEspecie.setText("");
+        mRaza.setText("");
+        mChip.setText("");
+        mFecha.setText("");
+        mPropietario.setText("");
+
+        jDialog1.setVisible(true);
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseDragged
@@ -468,7 +475,7 @@ public class Mascotas extends javax.swing.JFrame {
             pps.executeUpdate();
             JOptionPane.showMessageDialog(null, "datos guardados");
         } catch (SQLException e) {
-             JOptionPane.showMessageDialog(null, "Error,se necesita dni registrado");
+            JOptionPane.showMessageDialog(null, "Error,se necesita dni registrado");
         }
     }//GEN-LAST:event_jButton7MouseClicked
 
@@ -477,11 +484,11 @@ public class Mascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void mFechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mFechaMouseClicked
-                mFecha.setText(" ");
+        mFecha.setText(" ");
     }//GEN-LAST:event_mFechaMouseClicked
 
     private void mPropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mPropietarioMouseClicked
-                mPropietario.setText(" ");        // TODO add your handling code here:
+        mPropietario.setText(" ");        // TODO add your handling code here:
     }//GEN-LAST:event_mPropietarioMouseClicked
 
     /**
