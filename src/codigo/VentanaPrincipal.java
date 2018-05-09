@@ -143,7 +143,7 @@ private void detectaElLogin() {
             }
         });
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText(".");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
