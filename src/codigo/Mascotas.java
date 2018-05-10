@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +24,8 @@ public class Mascotas extends javax.swing.JFrame {
 
     DataBases con = new DataBases();
     Connection cn = con.getConexion();
-    DefaultTableModel dtm;
+    DefaultTableModel dtm = new DefaultTableModel();
+  
 
     /**
      * Creates new form Mascotas
@@ -312,6 +315,11 @@ public class Mascotas extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -489,21 +497,32 @@ public class Mascotas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    int filaSeleccionada =Jtable.getSelectedRow();
-
-        if(filaSeleccionada >=0){
-              dtm.removeRow(filaSeleccionada);
-               
-                 
-        }
-          
-        else {
-            JOptionPane.showMessageDialog(this, "fila No seleccionada");
-        }
-        
+   
       
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    int filaSeleccionada =Jtable.getSelectedRow();
+      DataBases con = new DataBases();
+    Connection cn = con.getConexion();
+    String valor = Jtable.getValueAt(filaSeleccionada, 0).toString();
+    if(filaSeleccionada >0){
+        try {
+            PreparedStatement pps = cn.prepareStatement("DELETE FROM mascota WHERE nombre='"+valor+"'");
+            pps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Dato Eliminado");
+        } catch (SQLException ex) {
+            Logger.getLogger(Mascotas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+                
+               
+       
+  
+        
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

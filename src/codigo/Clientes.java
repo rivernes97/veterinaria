@@ -14,6 +14,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -446,15 +448,25 @@ public class Clientes extends javax.swing.JFrame {
         
         
         
-        int filaSeleccionada =Jtable.getSelectedRow();
-         
-        if(filaSeleccionada >=0){
-         dtm.removeRow(filaSeleccionada);
-              
+       int filaSeleccionada =Jtable.getSelectedRow();
+      DataBases con = new DataBases();
+    Connection cn = con.getConexion();
+    String valor = Jtable.getValueAt(filaSeleccionada, 0).toString();
+    if(filaSeleccionada >0){
+        try {
+            PreparedStatement pps = cn.prepareStatement("DELETE FROM cliente WHERE nombre='"+valor+"'");
+            pps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Dato Eliminado");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Mascotas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else {
-            JOptionPane.showMessageDialog(this, "fila No seleccionada");
-        }
+
+      
+       
+  
+        
+    }
         
     }//GEN-LAST:event_jButton4ActionPerformed
     
